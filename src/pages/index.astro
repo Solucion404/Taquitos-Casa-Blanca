@@ -1,0 +1,49 @@
+---
+/**
+ * index.astro — Página principal de Taquitos Casa Blanca
+ *
+ * ┌─────────────────────────────────────────────────────────────────┐
+ * │  CÓMO CONFIGURAR LAS IMÁGENES DEL HERO                         │
+ * │                                                                 │
+ * │  1. Copia tus imágenes a /public/assets/                        │
+ * │  2. Edita las props del componente <Hero /> abajo:              │
+ * │                                                                 │
+ * │     bgImage      → foto de fondo del hero                      │
+ * │     logoCircular → logo circular en la nav (arriba-izq)         │
+ * │     logoCerdito  → mascota cerdito vaquero sobre el título      │
+ * │                                                                 │
+ * │  Ejemplo con tus archivos actuales:                             │
+ * │     bgImage="/assets/foto_1.jpg"                                │
+ * │     logoCircular="/assets/Logo_con_fondo_negro-removebg..."     │
+ * │     logoCerdito="/assets/cerdito-removebg-preview.png"          │
+ * └─────────────────────────────────────────────────────────────────┘
+ */
+
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero";
+---
+
+<Layout
+  title="Taquitos Casa Blanca Monterrey — El Sabor de Chiapas en San Pedro"
+  description="Sabor artesanal desde 1962. Taquitos Casa Blanca, ahora en San Pedro Garza García, Monterrey."
+>
+  <!--
+    Cambia las props de imagen aquí.
+    bgImage, logoCircular y logoCerdito reciben rutas públicas (/assets/...).
+  -->
+  <Hero
+    client:load
+    bgImage="/assets/foto_7.jpg"
+    logoCircular="/assets/Logo_con_fondo_negro-removebg-preview.png"
+    logoCerdito="/assets/Logo_con_fondo_negro-removebg-preview.png"
+  />
+
+  <!--
+    =============================================
+    FASE 2: Aquí irán las siguientes secciones:
+      <Menu client:visible />
+      <Galeria client:visible />
+      <Contacto client:visible />
+    =============================================
+  -->
+</Layout>

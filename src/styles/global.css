@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────────────────────────────────────
+   Custom font registration — Bertram LET substitute via Bungee
+   ────────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --font-display: 'Lilita One', Impact, 'Arial Black', sans-serif;
+    --font-body: Arial, Helvetica, sans-serif;
+    --color-orange: #F39200;
+    --color-cream: #FDD5A5;
+    --color-black: #000000;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 700; /* Arial Bold en todo el sitio — sin peso normal */
+    background-color: var(--color-black);
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  /* ─── Outline style personalizado ─── */
+  *:focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 3px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Tipografía rústica de display: clase utilitaria
+   ────────────────────────────────────────────────────────────── */
+@layer utilities {
+  .text-display {
+    font-family: var(--font-display);
+    font-weight: 400; /* Lilita One solo tiene weight 400 — su Bold es intrínseco */
+    letter-spacing: 0.04em;
+    line-height: 1.05;
+  }
+
+  /* Sombra de texto para legibilidad sobre imagen */
+  .text-hero-shadow {
+    text-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.8),
+      0 4px 24px rgba(0, 0, 0, 0.5);
+  }
+}

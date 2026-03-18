@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Taquitos Casa Blanca Monterrey — Sabor de Chiapas en San Pedro',
+  description = 'Sabor artesanal desde 1962. Taquitos Casa Blanca, ahora en San Pedro Garza García, Monterrey.',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <!-- Google Fonts: Lilita One (display) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="/assets/logo-circular.png" />
+  </head>
+  <body class="bg-brand-black font-body antialiased">
+    <slot />
+  </body>
+</html>
