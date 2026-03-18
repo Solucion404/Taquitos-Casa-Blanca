@@ -120,7 +120,7 @@ const Hero: React.FC<HeroProps> = ({
 
       {/* ── 4. CONTENIDO CENTRAL ── */}
       <motion.div
-        className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center md:pt-32"
+        className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center md:pt-24"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -129,12 +129,12 @@ const Hero: React.FC<HeroProps> = ({
         {/* TODO: Cambia logoCerdito con la ruta de tu mascota */}
         <motion.div
           variants={fadeInUp}
-          className="relative z-10 mt-10 mb-[-5vh] md:-mt-20 md:mb-2"
+          className="relative z-10 mb-8 md:mb-12"
         >
           <img
             src={logoCerdito}
             alt="Cerdito vaquero de Monterrey — mascota Casa Blanca"
-            className="h-[35vh] w-auto object-contain drop-shadow-2xl sm:h-[40vh] md:h-[45vh]"
+            className="h-[25vh] w-auto object-contain drop-shadow-2xl sm:h-[30vh] md:h-[35vh]"
           />
         </motion.div>
 
@@ -228,19 +228,6 @@ const Hero: React.FC<HeroProps> = ({
           </a>
         </motion.div>
 
-        {/* ── 4e. Indicador de scroll (micro-detalle) ── */}
-        <motion.div
-          variants={fadeInUp}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          aria-hidden="true"
-        >
-          <div className="flex flex-col items-center gap-1.5">
-            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
-              scroll
-            </span>
-            <div className="h-8 w-px bg-gradient-to-b from-white/40 to-transparent" />
-          </div>
-        </motion.div>
       </motion.div>
     </section>
   );
