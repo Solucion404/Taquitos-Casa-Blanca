@@ -7,6 +7,13 @@
  * Las imágenes deben colocarse en /public/assets/ y referenciar su ruta aquí.
  */
 
+/** Opción de peso para platillos vendidos por kilo */
+export interface WeightOption {
+  id: string;
+  weight: string;   // ej. '1/4 kg'
+  price: number;
+}
+
 export interface MenuItem {
   id: string;
   name: string;
@@ -17,6 +24,11 @@ export interface MenuItem {
   priceAltLabel?: string;
   description?: string;
   category: 'tacos' | 'carnes' | 'especiales' | 'bebidas';
+  /**
+   * Opciones de peso (para carnes por kilo).
+   * Cuando este campo existe, se renderiza la Super-Card de peso.
+   */
+  options?: WeightOption[];
   /**
    * Ruta de la imagen del platillo.
    * Debe existir en /public/assets/
@@ -34,7 +46,7 @@ export const menuData: MenuItem[] = [
     price: 28,
     category: 'tacos',
     description: 'Taco de carne surtida al estilo Chiapas',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
+    image: "/assets/foto_4.jpg", // TODO: '/assets/foto_X.jpg'
   },
   {
     id: 'taco-maciza',
@@ -47,28 +59,17 @@ export const menuData: MenuItem[] = [
 
   // ─── CARNES ──────────────────────────────────────────────────
   {
-    id: 'carne-cuarto-kilo',
-    name: '¼ Kilo de Carne',
-    price: 180,
+    id: 'carne-por-peso',
+    name: 'Carne',
+    price: 200,              // precio base (1/4 kg), se sobreescribe en la UI
     category: 'carnes',
-    description: 'Cuarto kilo de carne al estilo Casa Blanca',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
-  },
-  {
-    id: 'carne-medio-kilo',
-    name: '½ Kilo de Carne',
-    price: 360,
-    category: 'carnes',
-    description: 'Medio kilo de carne al estilo Casa Blanca',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
-  },
-  {
-    id: 'carne-un-kilo',
-    name: '1 Kilo de Carne',
-    price: 700,
-    category: 'carnes',
-    description: 'Un kilo completo de carne al estilo Casa Blanca',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
+    description: 'Nuestra famosa receta por peso',
+    image: "/assets/foto_10.jpg",        // TODO: '/assets/foto_X.jpg' (_CASABLANCA-06.jpg)
+    options: [
+      { id: 'cuarto', weight: '1/4 kg', price: 200 },
+      { id: 'medio', weight: '1/2 kg', price: 380 },
+      { id: 'kilo', weight: '1 kg', price: 740 },
+    ],
   },
 
   // ─── ESPECIALES ──────────────────────────────────────────────
@@ -141,9 +142,9 @@ export const menuData: MenuItem[] = [
 
 /** Categorías disponibles con etiqueta de display */
 export const categories: { value: MenuItem['category'] | 'todos'; label: string }[] = [
-  { value: 'todos',      label: 'Todos' },
-  { value: 'tacos',     label: 'Tacos' },
-  { value: 'carnes',    label: 'Carnes' },
+  { value: 'todos', label: 'Todos' },
+  { value: 'tacos', label: 'Tacos' },
+  { value: 'carnes', label: 'Carnes' },
   { value: 'especiales', label: 'Especiales' },
-  { value: 'bebidas',   label: 'Bebidas' },
+  { value: 'bebidas', label: 'Bebidas' },
 ];

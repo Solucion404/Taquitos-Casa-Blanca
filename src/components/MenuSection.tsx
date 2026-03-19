@@ -14,7 +14,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { menuData, categories, type MenuItem } from '../data/menu';
+import { menuData, categories, type MenuItem, type WeightOption } from '../data/menu';
 
 // ─── Tipos ────────────────────────────────────────────────────
 type CategoryFilter = MenuItem['category'] | 'todos';
@@ -37,6 +37,99 @@ const categoryEmoji: Record<string, string> = {
   carnes: '🥩',
   especiales: '⭐',
   bebidas: '🥤',
+};
+
+// ─── Sub-componente: Super-Card de Carnes (selector de peso) ──
+const CarneSuperCard: React.FC<{ item: MenuItem }> = ({ item }) => {
+  const options = item.options as WeightOption[];
+  const [selected, setSelected] = useState<WeightOption>(options[0]);
+
+  return (
+    <motion.article
+      layout
+      layoutId={item.id}
+      variants={cardVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.16)' }}
+      className="relative z-10 col-span-1 flex flex-col overflow-hidden rounded-3xl bg-[#FDD5A5] shadow-lg md:col-span-2"
+      style={{ willChange: 'transform' }}
+    >
+      {/* Imagen superior */}
+      {/* TODO: Vincular foto — image: '/assets/foto_X.jpg' en menu.ts */}
+      <div className="relative h-48 w-full overflow-hidden bg-[#FFF8F0]">
+        {item.image ? (
+          <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2">
+            <span className="text-6xl opacity-40">🥩</span>
+            <span className="text-[11px] font-bold uppercase tracking-widest text-brand-black/30">
+              foto próximamente
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Contenido */}
+      <div className="flex flex-col items-center gap-3 px-6 py-6 text-center">
+        <h3 className="text-lg font-bold uppercase leading-tight text-brand-black">
+          {item.name}
+        </h3>
+        {item.description && (
+          <p className="text-xs text-black/70">{item.description}</p>
+        )}
+
+        {/* Precio dinámico */}
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={selected.id}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.18 }}
+            style={{ fontFamily: "'Bungee Shade', cursive" }}
+            className="text-4xl text-[#F39200]"
+          >
+            ${selected.price}
+          </motion.span>
+        </AnimatePresence>
+
+        {/* Selector de peso */}
+        <div className="mt-1 flex flex-wrap justify-center gap-3">
+          {options.map((opt) => {
+            const isActive = opt.id === selected.id;
+            return (
+              <motion.button
+                key={opt.id}
+                onClick={() => setSelected(opt)}
+                whileTap={{ scale: 0.93 }}
+                className={`
+                  flex flex-col items-center rounded-2xl border-2 px-5 py-3
+                  transition-colors duration-200
+                  ${
+                    isActive
+                      ? 'border-[#F39200] bg-[#F39200]/10'
+                      : 'border-transparent bg-white/60 hover:bg-white'
+                  }
+                `}
+              >
+                <span className="text-sm font-bold uppercase text-brand-black">
+                  {opt.weight}
+                </span>
+                <span
+                  style={{ fontFamily: "'Bungee Shade', cursive" }}
+                  className="text-base text-[#F39200]/80"
+                >
+                  ${opt.price}
+                </span>
+              </motion.button>
+            );
+          })}
+        </div>
+      </div>
+    </motion.article>
+  );
 };
 
 // ─── Sub-componente: Tarjeta de platillo (vertical) ───────────
@@ -173,11 +266,15 @@ const MenuSection: React.FC = () => {
           initial="hidden"
           animate="visible"
           exit="hidden"
-          className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2"
         >
-          {filtered.map((item) => (
-            <MenuCard key={item.id} item={item} />
-          ))}
+          {filtered.map((item) =>
+            item.options ? (
+              <CarneSuperCard key={item.id} item={item} />
+            ) : (
+              <MenuCard key={item.id} item={item} />
+            )
+          )}
         </motion.div>
       </AnimatePresence>
 
