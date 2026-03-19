@@ -114,7 +114,7 @@ const Hero: React.FC<HeroProps> = ({
           aria-label="Abrir menú"
           className="flex h-11 w-11 items-center justify-center rounded-full bg-black/30 backdrop-blur-sm transition-all duration-200 hover:bg-black/50 active:scale-95"
         >
-          <Menu size={26} color="#FDD5A5" strokeWidth={2} />
+          <Menu size={26} color="#FFFFFF" strokeWidth={2} />
         </button>
       </motion.nav>
 
@@ -141,15 +141,17 @@ const Hero: React.FC<HeroProps> = ({
         {/* ── 4b. Título impactante ── */}
         <motion.h1
           variants={fadeInUp}
+          style={{
+            textShadow: '0 3px 0 rgba(0,0,0,0.6), 0 6px 20px rgba(0,0,0,0.4)',
+          }}
           className="
             text-display
-            text-hero-shadow
             mb-4
             text-5xl
             uppercase
             leading-[1.0]
-            tracking-wide
-            text-bg-cream
+            tracking-tight
+            text-white
             sm:text-6xl
             md:text-7xl
             md:leading-[1.1]
