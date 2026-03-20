@@ -26,9 +26,9 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden:  { opacity: 0, y: 20, scale: 0.97 },
-  visible: { opacity: 1, y: 0,  scale: 1, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } },
-  exit:    { opacity: 0, scale: 0.95, transition: { duration: 0.2 } },
+  hidden: { opacity: 0, y: 20, scale: 0.97 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } },
+  exit: { opacity: 0, scale: 0.95, transition: { duration: 0.2 } },
 };
 
 // ─── Emoji placeholder por categoría ─────────────────────────
@@ -107,10 +107,9 @@ const CarneSuperCard: React.FC<{ item: MenuItem }> = ({ item }) => {
                 className={`
                   flex flex-col items-center rounded-2xl border-2 px-5 py-3
                   transition-colors duration-200
-                  ${
-                    isActive
-                      ? 'border-[#F39200] bg-[#F39200]/10'
-                      : 'border-transparent bg-white/60 hover:bg-white'
+                  ${isActive
+                    ? 'border-[#F39200] bg-[#F39200]/10'
+                    : 'border-transparent bg-white/60 hover:bg-white'
                   }
                 `}
               >

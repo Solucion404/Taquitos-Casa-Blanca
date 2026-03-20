@@ -61,14 +61,14 @@ export const menuData: MenuItem[] = [
   {
     id: 'carne-por-peso',
     name: 'Carne',
-    price: 200,              // precio base (1/4 kg), se sobreescribe en la UI
+    price: 180,              // precio base (1/4 kg), se sobreescribe en la UI
     category: 'carnes',
     description: 'Nuestra famosa receta por peso',
     image: "/assets/foto_10.jpg",        // TODO: '/assets/foto_X.jpg' (_CASABLANCA-06.jpg)
     options: [
-      { id: 'cuarto', weight: '1/4 kg', price: 200 },
-      { id: 'medio', weight: '1/2 kg', price: 380 },
-      { id: 'kilo', weight: '1 kg', price: 740 },
+      { id: 'cuarto', weight: '1/4 kg', price: 180 },
+      { id: 'medio', weight: '1/2 kg', price: 360 },
+      { id: 'kilo', weight: '1 kg', price: 700 },
     ],
   },
 
