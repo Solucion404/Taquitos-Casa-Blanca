@@ -158,7 +158,7 @@ const Hero: React.FC<HeroProps> = ({
             lg:text-8xl
           "
         >
-          El Sabor de
+          Los autenticos de
           <br />
           Chiapas
           <br />
