@@ -79,7 +79,7 @@ export const menuData: MenuItem[] = [
     price: 60,
     category: 'especiales',
     description: 'Quesadilla artesanal con queso fundido',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
+    image: "/assets/foto_15.jpg", // TODO: '/assets/foto_X.jpg'
   },
   {
     id: 'especial-torta',
@@ -87,7 +87,7 @@ export const menuData: MenuItem[] = [
     price: 110,
     category: 'especiales',
     description: 'Torta de adobada con ingredientes frescos',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
+    image: "/assets/foto_17.jpg", // TODO: '/assets/foto_X.jpg'
   },
   {
     id: 'especial-chilaquiles',
@@ -95,7 +95,7 @@ export const menuData: MenuItem[] = [
     price: 170,
     category: 'especiales',
     description: 'Chilaquiles al estilo Chiapas con salsa de la casa',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
+    image: "/assets/foto_33.jpg", // TODO: '/assets/foto_X.jpg'
   },
 
   // ─── BEBIDAS ─────────────────────────────────────────────────
@@ -107,7 +107,7 @@ export const menuData: MenuItem[] = [
     priceAltLabel: 'Med.',
     category: 'bebidas',
     description: 'Bebida tradicional chiapaneca de cacao',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
+    image: "/assets/foto_21.jpg", // TODO: '/assets/foto_X.jpg'
   },
   {
     id: 'bebida-refresco',
