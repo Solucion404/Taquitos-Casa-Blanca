@@ -120,7 +120,7 @@ const Hero: React.FC<HeroProps> = ({
 
       {/* ── 4. CONTENIDO CENTRAL ── */}
       <motion.div
-        className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center md:pt-24"
+        className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -129,12 +129,12 @@ const Hero: React.FC<HeroProps> = ({
         {/* TODO: Cambia logoCerdito con la ruta de tu mascota */}
         <motion.div
           variants={fadeInUp}
-          className="relative z-10 mb-8 md:mb-12"
+          className="relative z-10 mb-[-12vh] md:mb-[-8vh]"
         >
           <img
             src={logoCerdito}
             alt="Cerdito vaquero de Monterrey — mascota Casa Blanca"
-            className="h-[25vh] w-auto object-contain drop-shadow-2xl sm:h-[30vh] md:h-[35vh]"
+            className="h-[50vh] w-auto object-contain drop-shadow-2xl sm:h-[60vh] md:h-[55vh]"
           />
         </motion.div>
 
