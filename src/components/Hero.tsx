@@ -158,9 +158,7 @@ const Hero: React.FC<HeroProps> = ({
             lg:text-8xl
           "
         >
-          Los autenticos de
-          <br />
-          Chiapas
+          Los autenticos de Chiapas
           <br />
           en Monterrey
         </motion.h1>

@@ -22,12 +22,11 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero";
 import MenuSection from "../components/MenuSection";
+import HistorySection from "../components/HistorySection";
 ---
 
-<Layout
-  title="Taquitos Casa Blanca Monterrey — El Sabor de Chiapas en San Pedro"
-  description="Sabor artesanal desde 1962. Taquitos Casa Blanca, ahora en San Pedro Garza García, Monterrey."
->
+<Layout title="Taquitos Casa Blanca | El Sabor de Chiapas en Monterrey">
+  <!-- FASE 1: Hero Impactante -->
   <Hero
     client:load
     bgImage="/assets/foto_7.jpg"
@@ -35,7 +34,10 @@ import MenuSection from "../components/MenuSection";
     logoCerdito="/assets/cerdito_con_sombrero.png"
   />
 
-  <!-- FASE 2: Menú interactivo -->
+  <!-- FASE 2: Nuestra Historia -->
+  <HistorySection client:visible />
+
+  <!-- FASE 3: Menú interactivo -->
   <MenuSection client:visible />
 
   <!--
