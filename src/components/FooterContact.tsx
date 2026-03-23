@@ -108,10 +108,10 @@ const FooterContact: React.FC = () => {
                     Contáctanos por nuestras redes.
                   </p>
                   <div className="flex gap-3">
-                    <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF6EC] text-[#F39200] transition-colors hover:bg-[#F39200] hover:text-white">
+                    <a href="https://www.instagram.com/taquitoscasablancamty" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF6EC] text-[#F39200] transition-colors hover:bg-[#F39200] hover:text-white">
                       <Instagram size={20} strokeWidth={2} />
                     </a>
-                    <a href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF6EC] text-[#F39200] transition-colors hover:bg-[#F39200] hover:text-white">
+                    <a href="https://www.facebook.com/people/Taquitos-Casa-Blanca-MTY/61587838586002/" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF6EC] text-[#F39200] transition-colors hover:bg-[#F39200] hover:text-white">
                       <Facebook size={20} strokeWidth={2} />
                     </a>
                   </div>
