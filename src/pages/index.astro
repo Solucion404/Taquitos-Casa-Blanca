@@ -23,6 +23,7 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero";
 import MenuSection from "../components/MenuSection";
 import HistorySection from "../components/HistorySection";
+import FooterContact from "../components/FooterContact";
 ---
 
 <Layout title="Taquitos Casa Blanca | El Sabor de Chiapas en Monterrey">
@@ -40,8 +41,11 @@ import HistorySection from "../components/HistorySection";
   <!-- FASE 3: Menú interactivo -->
   <MenuSection client:visible />
 
+  <!-- FASE 4: Contacto y Ubicación -->
+  <FooterContact client:visible />
+
   <!--
-    =============================================
+    SECCIONES PENDIENTES (Ejemplo):=============================================
     FASE 3 (próximamente):
       <Galeria client:visible />
       <Contacto client:visible />
