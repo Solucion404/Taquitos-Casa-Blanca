@@ -77,20 +77,20 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <section
       id="hero"
-      className="relative h-[100dvh] w-full overflow-hidden isolate"
+      className="relative flex min-h-[100dvh] w-full flex-col overflow-hidden isolate"
       aria-label="Hero — Taquitos Casa Blanca"
     >
       {/* ── 1. FONDO ── */}
       {/* TODO: Vincula tu foto de fondo cambiando la prop bgImage  */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 min-h-full bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('${bgImage}')` }}
         role="img"
         aria-label="Foto de fondo de tacos Casa Blanca"
       />
 
       {/* ── 2. OVERLAY oscuro para contraste ── */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 min-h-full bg-black/40" />
 
       {/* ── 3. NAVEGACIÓN flotante ── */}
       <motion.nav
@@ -118,85 +118,77 @@ const Hero: React.FC<HeroProps> = ({
         </button>
       </motion.nav>
 
-      {/* ── 4. CONTENIDO CENTRAL ── */}
+      {/* ── 4. CONTENIDO CENTRAL — en flujo normal (no absolute) ── */}
+      {/*    Con min-h-[100dvh] en el section, este div empuja la        */}
+      {/*    sección hacia abajo si el contenido lo necesita, en lugar   */}
+      {/*    de desbordarse o cortarse.                                   */}
       <motion.div
-        className="absolute inset-0 z-10 flex flex-col items-center justify-between px-6 pt-20 pb-8 text-center"
+        className="relative z-10 flex flex-1 flex-col items-center justify-center gap-2 px-6 pt-20 pb-10 text-center"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
 
-        {/* ── Grupo central: cerdito + título + subtítulo ── */}
-        {/*    flex-1 + min-h-0 permite que este bloque crezca y se encoja */}
-        {/*    sin desbordarse nunca más allá del viewport               */}
-        <div className="flex min-h-0 flex-1 flex-col items-center justify-center w-full">
-
-          {/* ── 4a. Logo cerdito vaquero ── */}
-          <motion.div
-            variants={fadeInUp}
-            className="flex-shrink-0"
-          >
-            <img
-              src={logoCerdito}
-              alt="Cerdito vaquero de Monterrey — mascota Casa Blanca"
-              className="
-                h-[38vh] max-h-[240px]
-                w-auto object-contain
-                drop-shadow-2xl
-                sm:h-[42vh] sm:max-h-[280px]
-                md:h-[40vh] md:max-h-[300px]
-                [@media(max-aspect-ratio:4/3)]:h-[30vh] [@media(max-aspect-ratio:4/3)]:max-h-[220px]
-              "
-            />
-          </motion.div>
-
-          {/* ── 4b. Título impactante ── */}
-          <motion.h1
-            variants={fadeInUp}
-            style={{
-              textShadow: '0 3px 0 rgba(0,0,0,0.6), 0 6px 20px rgba(0,0,0,0.4)',
-            }}
+        {/* ── 4a. Logo cerdito vaquero ── */}
+        <motion.div variants={fadeInUp}>
+          <img
+            src={logoCerdito}
+            alt="Cerdito vaquero de Monterrey — mascota Casa Blanca"
             className="
-              text-display
-              mb-3
-              text-5xl
-              uppercase
-              leading-[1.0]
-              tracking-tight
-              text-white
-              sm:text-6xl
-              md:text-7xl
-              md:leading-[1.1]
-              lg:text-8xl
+              h-[38vh] max-h-[240px]
+              w-auto object-contain
+              drop-shadow-2xl
+              sm:h-[42vh] sm:max-h-[280px]
+              md:h-[40vh] md:max-h-[300px]
+              [@media(max-aspect-ratio:4/3)]:h-[28vh]
+              [@media(max-aspect-ratio:4/3)]:max-h-[200px]
             "
-          >
-            Los autenticos de Chiapas
-            <br />
-            en Monterrey
-          </motion.h1>
+          />
+        </motion.div>
 
-          {/* ── 4c. Subtítulo ── */}
-          <motion.p
-            variants={fadeInUp}
-            className="
-              max-w-sm
-              text-base
-              font-medium
-              leading-relaxed
-              text-white/90
-              drop-shadow-md
-              sm:max-w-md
-              sm:text-lg
-            "
-          >
-            Ahora en San Pedro Garza García.
-          </motion.p>
+        {/* ── 4b. Título impactante ── */}
+        <motion.h1
+          variants={fadeInUp}
+          style={{
+            textShadow: '0 3px 0 rgba(0,0,0,0.6), 0 6px 20px rgba(0,0,0,0.4)',
+          }}
+          className="
+            text-display
+            text-5xl
+            uppercase
+            leading-[1.0]
+            tracking-tight
+            text-white
+            sm:text-6xl
+            md:text-7xl
+            md:leading-[1.1]
+            lg:text-8xl
+          "
+        >
+          Los autenticos de Chiapas
+          <br />
+          en Monterrey
+        </motion.h1>
 
-        </div>
-        {/* ── Fin grupo central ── */}
+        {/* ── 4c. Subtítulo ── */}
+        <motion.p
+          variants={fadeInUp}
+          className="
+            max-w-sm
+            text-base
+            font-medium
+            leading-relaxed
+            text-white/90
+            drop-shadow-md
+            sm:max-w-md
+            sm:text-lg
+          "
+        >
+          Ahora en San Pedro Garza García.
+        </motion.p>
 
-        {/* ── 4d. Botón CTA — siempre visible en el fondo ── */}
-        <motion.div variants={fadeInUp} className="flex-shrink-0 mt-4">
+        {/* ── 4d. Botón CTA ── */}
+        <motion.div variants={fadeInUp} className="pt-2">
           <a
             href="#menu"
             id="cta-ver-menu"
