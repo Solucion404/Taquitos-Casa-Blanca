@@ -77,7 +77,7 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <section
       id="hero"
-      className="relative h-[100dvh] w-full overflow-hidden"
+      className="relative h-[100dvh] w-full overflow-hidden isolate"
       aria-label="Hero — Taquitos Casa Blanca"
     >
       {/* ── 1. FONDO ── */}
@@ -120,71 +120,83 @@ const Hero: React.FC<HeroProps> = ({
 
       {/* ── 4. CONTENIDO CENTRAL ── */}
       <motion.div
-        className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center"
+        className="absolute inset-0 z-10 flex flex-col items-center justify-between px-6 pt-20 pb-8 text-center"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
-        {/* ── 4a. Logo cerdito vaquero ── */}
-        {/* TODO: Cambia logoCerdito con la ruta de tu mascota */}
-        <motion.div
-          variants={fadeInUp}
-          className="relative z-10 mb-[-12vh] md:mb-[-8vh]"
-        >
-          <img
-            src={logoCerdito}
-            alt="Cerdito vaquero de Monterrey — mascota Casa Blanca"
-            className="h-[50vh] w-auto object-contain drop-shadow-2xl sm:h-[60vh] md:h-[55vh]"
-          />
-        </motion.div>
 
-        {/* ── 4b. Título impactante ── */}
-        <motion.h1
-          variants={fadeInUp}
-          style={{
-            textShadow: '0 3px 0 rgba(0,0,0,0.6), 0 6px 20px rgba(0,0,0,0.4)',
-          }}
-          className="
-            text-display
-            mb-4
-            text-5xl
-            uppercase
-            leading-[1.0]
-            tracking-tight
-            text-white
-            sm:text-6xl
-            md:text-7xl
-            md:leading-[1.1]
-            lg:text-8xl
-          "
-        >
-          Los autenticos de Chiapas
-          <br />
-          en Monterrey
-        </motion.h1>
+        {/* ── Grupo central: cerdito + título + subtítulo ── */}
+        {/*    flex-1 + min-h-0 permite que este bloque crezca y se encoja */}
+        {/*    sin desbordarse nunca más allá del viewport               */}
+        <div className="flex min-h-0 flex-1 flex-col items-center justify-center w-full">
 
-        {/* ── 4c. Subtítulo ── */}
-        <motion.p
-          variants={fadeInUp}
-          className="
-            mb-8
-            max-w-sm
-            text-base
-            font-medium
-            leading-relaxed
-            text-white/90
-            drop-shadow-md
-            sm:max-w-md
-            sm:text-lg
-          "
-        >
+          {/* ── 4a. Logo cerdito vaquero ── */}
+          <motion.div
+            variants={fadeInUp}
+            className="flex-shrink-0"
+          >
+            <img
+              src={logoCerdito}
+              alt="Cerdito vaquero de Monterrey — mascota Casa Blanca"
+              className="
+                h-[38vh] max-h-[240px]
+                w-auto object-contain
+                drop-shadow-2xl
+                sm:h-[42vh] sm:max-h-[280px]
+                md:h-[40vh] md:max-h-[300px]
+                [@media(max-aspect-ratio:4/3)]:h-[30vh] [@media(max-aspect-ratio:4/3)]:max-h-[220px]
+              "
+            />
+          </motion.div>
 
-          <br />
-          Ahora en San Pedro Garza García.
-        </motion.p>
+          {/* ── 4b. Título impactante ── */}
+          <motion.h1
+            variants={fadeInUp}
+            style={{
+              textShadow: '0 3px 0 rgba(0,0,0,0.6), 0 6px 20px rgba(0,0,0,0.4)',
+            }}
+            className="
+              text-display
+              mb-3
+              text-5xl
+              uppercase
+              leading-[1.0]
+              tracking-tight
+              text-white
+              sm:text-6xl
+              md:text-7xl
+              md:leading-[1.1]
+              lg:text-8xl
+            "
+          >
+            Los autenticos de Chiapas
+            <br />
+            en Monterrey
+          </motion.h1>
 
-        {/* ── 4d. Botón CTA ── */}
-        <motion.div variants={fadeInUp}>
+          {/* ── 4c. Subtítulo ── */}
+          <motion.p
+            variants={fadeInUp}
+            className="
+              max-w-sm
+              text-base
+              font-medium
+              leading-relaxed
+              text-white/90
+              drop-shadow-md
+              sm:max-w-md
+              sm:text-lg
+            "
+          >
+            Ahora en San Pedro Garza García.
+          </motion.p>
+
+        </div>
+        {/* ── Fin grupo central ── */}
+
+        {/* ── 4d. Botón CTA — siempre visible en el fondo ── */}
+        <motion.div variants={fadeInUp} className="flex-shrink-0 mt-4">
           <a
             href="#menu"
             id="cta-ver-menu"
