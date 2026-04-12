@@ -35,10 +35,40 @@ const fadeIn = {
   visible: { opacity: 1, transition: { duration: 0.6 } },
 };
 
+// ─── Componentes Auxiliares para Texto Curvado ────────────────
+const TopCurvedText = ({ text }: { text: string }) => (
+  <div className="w-full w-[95vw] max-w-[950px] flex justify-center -mb-6 sm:-mb-10">
+    {/* Ampliamos el viewBox X a 1200 para que el texto tan largo no se estrelle contra los bordes */}
+    <svg viewBox="0 0 1200 240" className="w-full overflow-visible" style={{ filter: 'drop-shadow(0px 6px 16px rgba(0,0,0,0.7)) drop-shadow(0px 3px 0px rgba(0,0,0,0.9))' }}>
+      <path id="curve-top" d="M 40 220 Q 600 -10 1160 220" fill="transparent" />
+      {/* >>> LÍNEA DE FUENTE: text > style > fontFamily <<< */}
+      <text className="fill-white uppercase" style={{ fontFamily: "'Lilita One', cursive", fontSize: '48px', letterSpacing: '4px' }} textAnchor="middle">
+        <textPath href="#curve-top" startOffset="50%">
+          {text}
+        </textPath>
+      </text>
+    </svg>
+  </div>
+);
+
+const BottomCurvedText = ({ text }: { text: string }) => (
+  <div className="w-full w-[85vw] max-w-[650px] flex justify-center mt-0 sm:-mt-4">
+    <svg viewBox="0 0 800 160" className="w-full overflow-visible" style={{ filter: 'drop-shadow(0px 6px 16px rgba(0,0,0,0.7)) drop-shadow(0px 3px 0px rgba(0,0,0,0.9))' }}>
+      <path id="curve-bot" d="M 90 10 Q 400 190 710 10" fill="transparent" />
+      {/* >>> LÍNEA DE FUENTE: text > style > fontFamily <<< */}
+      <text className="fill-white uppercase" style={{ fontFamily: "'Bungee Shade', cursive", fontSize: '50px', letterSpacing: '6px' }} textAnchor="middle">
+        <textPath href="#curve-bot" startOffset="50%">
+          {text}
+        </textPath>
+      </text>
+    </svg>
+  </div>
+);
+
 const Hero: React.FC<HeroProps> = ({
-  bgImage      = '/assets/TODO_BG_IMAGE.jpg',
+  bgImage = '/assets/TODO_BG_IMAGE.jpg',
   logoCircular = '/assets/TODO_LOGO_CIRC.png',
-  logoCerdito  = '/assets/TODO_CERDITO.png',
+  logoCerdito = '/assets/TODO_CERDITO.png',
 }) => {
   return (
     <section
@@ -80,20 +110,13 @@ const Hero: React.FC<HeroProps> = ({
         animate="visible"
         variants={containerVariants}
       >
-        {/* 4a. Título Superior */}
-        <motion.h1
-          variants={fadeInUp}
-          style={{ textShadow: '0 3px 0 rgba(0,0,0,0.6), 0 6px 20px rgba(0,0,0,0.4)' }}
-          className="
-            text-display text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl 
-            uppercase leading-[1.0] tracking-tight text-white
-          "
-        >
-          Los autenticos de Chiapas
-        </motion.h1>
+        {/* 4a. Título Superior (Curvado hacia arriba) */}
+        <motion.div variants={fadeInUp} className="z-10 w-full flex justify-center">
+          <TopCurvedText text="Los Auténticos de Chiapas" />
+        </motion.div>
 
         {/* 4b. Cerdito vaquero (Intercalado) */}
-        <motion.div variants={fadeInUp}>
+        <motion.div variants={fadeInUp} className="z-20">
           <img
             src={logoCerdito}
             alt="Cerdito vaquero de Monterrey — mascota Casa Blanca"
@@ -101,22 +124,15 @@ const Hero: React.FC<HeroProps> = ({
               h-[24vh] max-h-[170px] w-auto object-contain drop-shadow-2xl
               sm:h-[28vh] sm:max-h-[220px]
               md:h-[30vh] md:max-h-[250px]
-              my-3 sm:my-4
+              my-1 sm:my-2
             "
           />
         </motion.div>
 
-        {/* 4c. Título Inferior */}
-        <motion.h1
-          variants={fadeInUp}
-          style={{ textShadow: '0 3px 0 rgba(0,0,0,0.6), 0 6px 20px rgba(0,0,0,0.4)' }}
-          className="
-            text-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl 
-            uppercase leading-[1.0] tracking-tight text-white
-          "
-        >
-          en Monterrey
-        </motion.h1>
+        {/* 4c. Título Inferior (Curvado como sonrisa) */}
+        <motion.div variants={fadeInUp} className="z-10 w-full flex justify-center">
+          <BottomCurvedText text="en Monterrey" />
+        </motion.div>
 
         {/* 4c. Subtítulo */}
         <motion.p
