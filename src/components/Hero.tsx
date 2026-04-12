@@ -80,32 +80,41 @@ const Hero: React.FC<HeroProps> = ({
         animate="visible"
         variants={containerVariants}
       >
-        {/* 4a. Cerdito vaquero */}
+        {/* 4a. Título Superior */}
+        <motion.h1
+          variants={fadeInUp}
+          style={{ textShadow: '0 3px 0 rgba(0,0,0,0.6), 0 6px 20px rgba(0,0,0,0.4)' }}
+          className="
+            text-display text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl 
+            uppercase leading-[1.0] tracking-tight text-white
+          "
+        >
+          Los autenticos de Chiapas
+        </motion.h1>
+
+        {/* 4b. Cerdito vaquero (Intercalado) */}
         <motion.div variants={fadeInUp}>
           <img
             src={logoCerdito}
             alt="Cerdito vaquero de Monterrey — mascota Casa Blanca"
             className="
-              h-[38vh] max-h-[240px] w-auto object-contain drop-shadow-2xl
-              sm:h-[42vh] sm:max-h-[280px]
-              md:h-[40vh] md:max-h-[300px]
-              [@media(max-aspect-ratio:4/3)]:h-[28vh]
-              [@media(max-aspect-ratio:4/3)]:max-h-[200px]
+              h-[24vh] max-h-[170px] w-auto object-contain drop-shadow-2xl
+              sm:h-[28vh] sm:max-h-[220px]
+              md:h-[30vh] md:max-h-[250px]
+              my-3 sm:my-4
             "
           />
         </motion.div>
 
-        {/* 4b. Título */}
+        {/* 4c. Título Inferior */}
         <motion.h1
           variants={fadeInUp}
           style={{ textShadow: '0 3px 0 rgba(0,0,0,0.6), 0 6px 20px rgba(0,0,0,0.4)' }}
           className="
-            text-display text-5xl uppercase leading-[1.0] tracking-tight text-white
-            sm:text-6xl md:text-7xl md:leading-[1.1] lg:text-8xl
+            text-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl 
+            uppercase leading-[1.0] tracking-tight text-white
           "
         >
-          Los autenticos de Chiapas
-          <br />
           en Monterrey
         </motion.h1>
 
