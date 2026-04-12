@@ -95,7 +95,7 @@ const HistorySection: React.FC = () => {
   return (
     <section
       className="relative overflow-hidden bg-cover bg-center bg-scroll md:bg-fixed px-6 pt-36 pb-24"
-      style={{ backgroundImage: "url('/assets/cerdito_flow_1.jpg')" }}
+      style={{ backgroundImage: "url('/assets/cerdito_flow_2.jpg')" }}
     >
       {/* Overlay oscuro para contraste */}
       <div className="absolute inset-0 min-h-full bg-black/55" />
