@@ -92,6 +92,14 @@ const Hero: React.FC<HeroProps> = ({
       {/* ── 2. OVERLAY oscuro para contraste ── */}
       <div className="absolute inset-0 min-h-full bg-black/40" />
 
+      {/* ── 2b. GRADIENTE de transición inferior ── */}
+      {/*     Funde el pie del Hero hacia el color de HistorySection   */}
+      {/*     #0d0a06 = negro cálido (madera oscura + overlay 55%)    */}
+      <div
+        className="absolute bottom-0 left-0 z-30 h-36 w-full pointer-events-none"
+        style={{ background: 'linear-gradient(to top, #0d0a06 0%, transparent 100%)' }}
+      />
+
       {/* ── 3. NAVEGACIÓN flotante ── */}
       <motion.nav
         className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-5 py-4"
