@@ -42,7 +42,7 @@ const TopCurvedText = ({ text }: { text: string }) => (
     <svg viewBox="0 0 1200 240" className="w-full overflow-visible" style={{ filter: 'drop-shadow(0px 6px 16px rgba(0,0,0,0.7)) drop-shadow(0px 3px 0px rgba(0,0,0,0.9))' }}>
       <path id="curve-top" d="M 40 220 Q 600 -10 1160 220" fill="transparent" />
       {/* >>> LÍNEA DE FUENTE: text > style > fontFamily <<< */}
-      <text className="fill-white uppercase" style={{ fontFamily: "'Lilita One', cursive", fontSize: '48px', letterSpacing: '4px' }} textAnchor="middle">
+      <text className="fill-white uppercase" style={{ fontFamily: "'Lilita One', cursive", fontSize: '78px', letterSpacing: '4px' }} textAnchor="middle">
         <textPath href="#curve-top" startOffset="50%">
           {text}
         </textPath>
@@ -56,7 +56,7 @@ const BottomCurvedText = ({ text }: { text: string }) => (
     <svg viewBox="0 0 800 160" className="w-full overflow-visible" style={{ filter: 'drop-shadow(0px 6px 16px rgba(0,0,0,0.7)) drop-shadow(0px 3px 0px rgba(0,0,0,0.9))' }}>
       <path id="curve-bot" d="M 90 10 Q 400 190 710 10" fill="transparent" />
       {/* >>> LÍNEA DE FUENTE: text > style > fontFamily <<< */}
-      <text className="fill-white uppercase" style={{ fontFamily: "'Bungee Shade', cursive", fontSize: '50px', letterSpacing: '6px' }} textAnchor="middle">
+      <text className="fill-white uppercase" style={{ fontFamily: "'Bungee Shade', cursive", fontSize: '60px', letterSpacing: '6px' }} textAnchor="middle">
         <textPath href="#curve-bot" startOffset="50%">
           {text}
         </textPath>
