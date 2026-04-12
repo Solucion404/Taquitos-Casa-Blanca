@@ -26,8 +26,8 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.97 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } },
+  hidden: { opacity: 0, x: 50, scale: 0.97 },
+  visible: { opacity: 1, x: 0, scale: 1, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
   exit: { opacity: 0, scale: 0.95, transition: { duration: 0.2 } },
 };
 
@@ -53,14 +53,14 @@ const CarneSuperCard: React.FC<{ item: MenuItem }> = ({ item }) => {
       animate="visible"
       exit="exit"
       whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.16)' }}
-      className="relative z-10 col-span-1 flex flex-col overflow-hidden rounded-3xl bg-[#FDD5A5] shadow-lg md:col-span-2"
+      className="relative z-10 flex w-[85vw] shrink-0 snap-center flex-col overflow-hidden rounded-3xl bg-[#FDD5A5] shadow-lg sm:w-[360px] md:w-[420px]"
       style={{ willChange: 'transform' }}
     >
       {/* Imagen superior */}
       {/* TODO: Vincular foto — image: '/assets/foto_X.jpg' en menu.ts */}
-      <div className="relative h-48 w-full overflow-hidden bg-[#FFF8F0]">
+      <div className="relative w-full shrink-0 overflow-hidden bg-[#FFF8F0] aspect-[4/3]">
         {item.image ? (
-          <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+          <img src={item.image} alt={item.name} className="h-full w-full object-cover object-center" />
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-2">
             <span className="text-6xl opacity-40">🥩</span>
@@ -72,7 +72,7 @@ const CarneSuperCard: React.FC<{ item: MenuItem }> = ({ item }) => {
       </div>
 
       {/* Contenido */}
-      <div className="flex flex-col items-center gap-3 px-6 py-6 text-center">
+      <div className="flex flex-1 flex-col items-center justify-center gap-3 px-6 py-6 text-center">
         <h3 className="text-lg font-bold uppercase leading-tight text-brand-black">
           {item.name}
         </h3>
@@ -142,17 +142,17 @@ const MenuCard: React.FC<{ item: MenuItem }> = ({ item }) => (
     exit="exit"
     whileHover={{ scale: 1.04, boxShadow: '0 20px 40px rgba(0,0,0,0.18)' }}
     whileTap={{ scale: 0.98 }}
-    className="flex flex-col overflow-hidden rounded-3xl bg-[#FDD5A5] shadow-lg"
+    className="flex w-[85vw] shrink-0 snap-center flex-col overflow-hidden rounded-3xl bg-[#FDD5A5] shadow-lg sm:w-[300px] md:w-[320px]"
     style={{ willChange: 'transform' }}
   >
     {/* ── Imagen superior ── */}
     {/* TODO: Vincular foto real — edita el campo `image` en src/data/menu.ts */}
-    <div className="relative h-48 w-full flex-shrink-0 overflow-hidden bg-[#FFF8F0]">
+    <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-[#FFF8F0]">
       {item.image ? (
         <img
           src={item.image}
           alt={item.name}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-center"
         />
       ) : (
         /* Placeholder centrado mientras no haya foto */
@@ -168,7 +168,7 @@ const MenuCard: React.FC<{ item: MenuItem }> = ({ item }) => (
     </div>
 
     {/* ── Contenido inferior ── */}
-    <div className="flex flex-col items-center gap-1 px-4 py-5 text-center">
+    <div className="flex flex-1 flex-col items-center justify-center gap-1 px-4 py-6 text-center">
       {/* Nombre */}
       <h3 className="text-base font-bold uppercase leading-tight text-brand-black">
         {item.name}
@@ -257,25 +257,32 @@ const MenuSection: React.FC = () => {
         ))}
       </div>
 
-      {/* ── Grid de platillos ── */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeCategory}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2"
-        >
-          {filtered.map((item) =>
-            item.options ? (
-              <CarneSuperCard key={item.id} item={item} />
-            ) : (
-              <MenuCard key={item.id} item={item} />
-            )
-          )}
-        </motion.div>
-      </AnimatePresence>
+      {/* ── Carrusel de platillos ── */}
+      <div className="relative w-full">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            className="mx-auto flex w-max max-w-full flex-nowrap gap-5 overflow-x-auto snap-x snap-mandatory px-6 py-6 pb-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
+            {filtered.map((item) =>
+              item.options ? (
+                <CarneSuperCard key={item.id} item={item} />
+              ) : (
+                <MenuCard key={item.id} item={item} />
+              )
+            )}
+
+            {/* Espacio final opcional para evitar límite brusco (visible solo si rebasa el ancho full) */}
+            {filtered.length > 2 && (
+              <div className="w-[5vw] shrink-0 sm:w-4" aria-hidden="true" />
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       {/* ── Nota de precios ── */}
       <p className="mt-12 text-center text-xs font-bold text-brand-black/40">

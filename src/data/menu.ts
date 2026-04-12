@@ -46,7 +46,7 @@ export const menuData: MenuItem[] = [
     price: 28,
     category: 'tacos',
     description: 'Taco de carne surtida al estilo Chiapas',
-    image: "/assets/foto_4.jpg", // TODO: '/assets/foto_X.jpg'
+    image: "/assets/foto_2.jpg", // TODO: '/assets/foto_X.jpg'
   },
   {
     id: 'taco-maciza',
@@ -54,7 +54,7 @@ export const menuData: MenuItem[] = [
     price: 28,
     category: 'tacos',
     description: 'Taco de maciza, corte selecto de cerdo',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
+    image: "/assets/foto_11.jpg", // TODO: '/assets/foto_X.jpg'
   },
 
   // ─── CARNES ──────────────────────────────────────────────────
@@ -114,7 +114,7 @@ export const menuData: MenuItem[] = [
     name: 'Refresco / Agua',
     price: 30,
     category: 'bebidas',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
+    image: "/assets/refresco.jpeg", // TODO: '/assets/foto_X.jpg'
   },
   {
     id: 'bebida-agua-fresca',
@@ -122,21 +122,21 @@ export const menuData: MenuItem[] = [
     price: 27,
     category: 'bebidas',
     description: 'Aguas frescas del día',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
+    image: "/assets/aguas_frescas.jpeg", // TODO: '/assets/foto_X.jpg'
   },
   {
     id: 'bebida-cafe',
     name: 'Café',
     price: 35,
     category: 'bebidas',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
+    image: "/assets/cafe.jpeg", // TODO: '/assets/foto_X.jpg'
   },
   {
     id: 'bebida-cafe-frio',
     name: 'Café Frío',
     price: 45,
     category: 'bebidas',
-    image: undefined, // TODO: '/assets/foto_X.jpg'
+    image: "/assets/cafe.jpeg", // TODO: '/assets/foto_X.jpg'
   },
 ];
 
