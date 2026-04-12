@@ -13,10 +13,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Inicio', href: '#hero' },
-  { label: 'Nuestra Historia', href: '#historia' },
-  { label: 'Menú', href: '#menu' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Inicio',           href: '#hero'      },
+  { label: 'Nuestra Historia', href: '#historia'  },
+  { label: 'Menú',             href: '#menu'      },
+  { label: 'Contacto',         href: '#redes'     },
+  { label: 'Visítanos',        href: '#contacto'  },
 ];
 
 // ─── Variantes ────────────────────────────────────────────────

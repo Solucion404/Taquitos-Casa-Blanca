@@ -97,6 +97,7 @@ const SocialCard: React.FC<CardProps> = ({ data, logo }) => {
 // ─── Componente principal ──────────────────────────────────────
 const SocialSection: React.FC = () => (
   <section
+    id="redes"
     className="relative overflow-hidden py-24 px-6"
     aria-label="Redes Sociales — Taquitos Casa Blanca"
   >
