@@ -20,7 +20,7 @@ const staggerContainer = {
 // ─── Componente principal ──────────────────────────────────────
 const HistorySection: React.FC = () => {
   return (
-    <section className="relative z-10 bg-white py-24 px-6 overflow-hidden">
+    <section id="historia" className="relative z-10 bg-white py-24 px-6 overflow-hidden">
       <div className="mx-auto max-w-6xl">
 
         {/* ── Top Layout: Texto + Imagen (2 columnas en desktop) ── */}

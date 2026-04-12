@@ -24,9 +24,13 @@ import Hero from "../components/Hero";
 import MenuSection from "../components/MenuSection";
 import HistorySection from "../components/HistorySection";
 import FooterContact from "../components/FooterContact";
+import FloatingNav from "../components/FloatingNav";
 ---
 
 <Layout title="Taquitos Casa Blanca | El Sabor de Chiapas en Monterrey">
+  <!-- Navegación flotante fija — siempre visible sin importar el scroll -->
+  <FloatingNav client:load />
+
   <!-- FASE 1: Hero Impactante -->
   <Hero
     client:load

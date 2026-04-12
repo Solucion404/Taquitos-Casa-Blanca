@@ -22,7 +22,7 @@ const mapEmbedUrl = "https://maps.google.com/maps?q=Taquitos+Casa+Blanca+Del+Val
 
 const FooterContact: React.FC = () => {
   return (
-    <section className="bg-[#FDF6EC] py-24 px-6">
+    <section id="contacto" className="bg-[#FDF6EC] py-24 px-6">
       <div className="mx-auto max-w-6xl">
 
         {/* ── Título Central ── */}
