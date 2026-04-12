@@ -93,32 +93,6 @@ const FooterContact: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Tarjeta 3: Redes / Contacto */}
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-col gap-4 rounded-2xl bg-white p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]"
-            >
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#FDF6EC] text-[#F39200]">
-                  <Phone size={24} strokeWidth={2.5} />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-sans text-lg font-bold text-[#1A1A1A] mb-1">Contacto</h3>
-                  <p className="font-sans text-[15px] leading-relaxed text-gray-600 mb-4">
-                    Contáctanos por nuestras redes.
-                  </p>
-                  <div className="flex gap-3">
-                    <a href="https://www.instagram.com/taquitoscasablancamty" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF6EC] text-[#F39200] transition-colors hover:bg-[#F39200] hover:text-white">
-                      <Instagram size={20} strokeWidth={2} />
-                    </a>
-                    <a href="https://www.facebook.com/people/Taquitos-Casa-Blanca-MTY/61587838586002/" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF6EC] text-[#F39200] transition-colors hover:bg-[#F39200] hover:text-white">
-                      <Facebook size={20} strokeWidth={2} />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
           </div>
 
           {/* Bloque Derecho: Mapa Interactivo */}

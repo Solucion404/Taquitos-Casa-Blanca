@@ -13,32 +13,32 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Inicio',           href: '#hero'      },
-  { label: 'Nuestra Historia', href: '#historia'  },
-  { label: 'Menú',             href: '#menu'      },
-  { label: 'Contacto',         href: '#contacto'  },
+  { label: 'Inicio', href: '#hero' },
+  { label: 'Nuestra Historia', href: '#historia' },
+  { label: 'Menú', href: '#menu' },
+  { label: 'Contacto', href: '#contacto' },
 ];
 
 // ─── Variantes ────────────────────────────────────────────────
 const overlayVariants = {
-  hidden:  { opacity: 0 },
+  hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.3 } },
-  exit:    { opacity: 0, transition: { duration: 0.22 } },
+  exit: { opacity: 0, transition: { duration: 0.22 } },
 };
 
 const panelVariants = {
-  hidden:  { x: '100%' },
+  hidden: { x: '100%' },
   visible: { x: '0%', transition: { duration: 0.38, ease: [0.22, 1, 0.36, 1] } },
-  exit:    { x: '100%', transition: { duration: 0.28, ease: [0.55, 0, 1, 0.45] } },
+  exit: { x: '100%', transition: { duration: 0.28, ease: [0.55, 0, 1, 0.45] } },
 };
 
 const linkContainerVariants = {
-  hidden:  {},
+  hidden: {},
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.12 } },
 };
 
 const linkVariants = {
-  hidden:  { opacity: 0, x: 32 },
+  hidden: { opacity: 0, x: 32 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.38, ease: [0.22, 1, 0.36, 1] } },
 };
 
@@ -98,7 +98,7 @@ const FloatingNav: React.FC = () => {
               aria-modal="true"
               className="fixed right-0 top-0 z-[170] flex h-full w-[min(340px,90vw)] flex-col"
               style={{
-                background: 'linear-gradient(160deg, #1a0900 0%, #2c1100 60%, #1a0900 100%)',
+                background: 'linear-gradient(160deg, #3a1800 0%, #8a4200 50%, #3a1800 100%)',
               }}
               variants={panelVariants}
               initial="hidden"
@@ -108,7 +108,7 @@ const FloatingNav: React.FC = () => {
               {/* Cabecera */}
               <div className="flex items-center justify-between px-6 py-5">
                 <span
-                  style={{ fontFamily: "'Bungee Shade', cursive", color: '#F39200', fontSize: '20px' }}
+                  style={{ fontFamily: "'Bungee Shade', cursive", color: '#ffffffff', fontSize: '20px' }}
                 >
                   Casa Blanca
                 </span>

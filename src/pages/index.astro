@@ -25,6 +25,7 @@ import MenuSection from "../components/MenuSection";
 import HistorySection from "../components/HistorySection";
 import FooterContact from "../components/FooterContact";
 import FloatingNav from "../components/FloatingNav";
+import SocialSection from "../components/SocialSection";
 ---
 
 <Layout title="Taquitos Casa Blanca | El Sabor de Chiapas en Monterrey">
@@ -57,7 +58,10 @@ import FloatingNav from "../components/FloatingNav";
   <!-- FASE 3: Menú interactivo -->
   <MenuSection client:visible />
 
-  <!-- FASE 4: Contacto y Ubicación -->
+  <!-- FASE 4: Redes Sociales -->
+  <SocialSection client:visible />
+
+  <!-- FASE 5: Contacto y Ubicación -->
   <FooterContact client:visible />
 
   <!--
