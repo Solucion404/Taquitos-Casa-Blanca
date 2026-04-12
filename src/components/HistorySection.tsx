@@ -94,7 +94,7 @@ const ParchmentCard: React.FC<ParchmentCardProps> = ({ title, children }) => (
 const HistorySection: React.FC = () => {
   return (
     <section
-      className="relative overflow-hidden bg-cover bg-center bg-fixed px-6 pt-36 pb-24"
+      className="relative overflow-hidden bg-cover bg-center bg-scroll md:bg-fixed px-6 pt-36 pb-24"
       style={{ backgroundImage: "url('/assets/cerdito_flow_1.jpg')" }}
     >
       {/* Overlay oscuro para contraste */}
