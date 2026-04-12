@@ -124,7 +124,7 @@ const FooterContact: React.FC = () => {
           className="mt-20 border-t border-brand-black/10 pt-8 text-center"
         >
           <p className="font-sans text-sm font-semibold tracking-wide text-gray-500">
-            Desarrollado por <a href="https://solucion404.com" target="_blank" rel="noopener noreferrer" className="text-[#F39200] hover:underline">Solución404</a>
+
           </p>
         </motion.div>
 
